@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# API
+# Store it
+POST    /api/store                              Store.store
+
+#Get Long Url by Ident
+GET     /api/link/{ident}                       Ident.getLongUrl
+GET     /api/link/                              Ident.getLongUrl
+
+# Home page
+GET     /                                       Front.index
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Error pages
+GET        /404                                 Errors.notFound
+GET        /500                                 Errors.internalError
+
+# Catch all
+*       /{ident}                                Slash.index

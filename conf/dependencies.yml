@@ -1,0 +1,14 @@
+# Application dependencies
+
+require:
+    - play
+    - play-codeborne -> tests 5.4
+    - com.mashape.unirest -> unirest-java 1.4.7
+
+repositories:
+    - codeborne:
+            type: http
+            artifact: https://repo.codeborne.com/play-[module]/[module]-[revision].zip
+            contains:
+                - play-codeborne -> *
+

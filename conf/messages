@@ -1,0 +1,20 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+ident.minsize=Ident is too short
+ident.maxsize=Ident is too long
+url.minsize=URL is too short
+url.maxsize=URL is too long
+
+# /api/store messages
+public.url.minsize=URL is too short (should be at least 5 chars)
+public.url.maxsize=URL is too long (should be at less then 15613 chars)
+public.url.absent=I need URL to shorten
+public.url.noturl=URL is malformed, not URL at all or just protocol not supported yet
+
+public.store.problem=Could not store link. Please report error id to developers. Thank you
+
+#/api/link/{ident} messages
+public.ident.absent=Not valid short URL. Valid short contains latin letters only
+public.ident.mismatch=Not valid short URL. Valid short contains latin letters only
+

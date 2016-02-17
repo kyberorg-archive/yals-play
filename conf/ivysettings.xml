@@ -1,0 +1,16 @@
+<!-- Should be stored to ~/.ivy2 folder -->
+<ivysettings>
+	<property name="ivy.checksums" value=""/>
+	
+	<!-- set resolver chain as default -->
+	<settings defaultResolver="main" />
+    <resolvers>
+        <chain name="main">
+			<ibiblio name="virtadev" 
+					 m2compatible="true" 
+					 root="http://maven.virtadev.net/jcenter/"
+					 cache="default-cache"
+			/>
+        </chain>
+    </resolvers>	
+</ivysettings>
