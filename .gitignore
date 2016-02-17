@@ -1,0 +1,32 @@
+#Maven generated build
+target/
+
+#Intellij IDEA files
+.idea
+*iml
+*ipr
+*iws
+*.ids
+
+#Signed artifacts
+*.asc
+
+#KDE files
+.directory
+
+#Project specific files
+bin/
+/db
+.eclipse
+/lib/
+/logs/
+/modules
+/project/target
+tmp/
+test-result
+build
+server.pid
+*.eml
+/dist/
+.cache
+
