@@ -1,0 +1,8 @@
+%{
+cleanTag = app.Storage.get().latestTag.replaceAll("[^\\d.]", "");
+shortCommit = app.Storage.get().latestCommit.substring(0,7);
+}%
+App Version:
+${cleanTag} (code based on commit
+<a href="${util.Paths.OUR_GITHUB_REPO}${util.Paths.GITHUB_COMMIT_PATH}${app.Storage.get().latestCommit.trim()}">
+${shortCommit}</a>)
