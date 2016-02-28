@@ -14,7 +14,7 @@ GET     /api/link/                              Ident.getLongUrl
 GET     /                                       Front.index
 
 # Ignore favicon requests
-GET     /favicon.ico                            404
+GET     /favicon.ico                            staticFile:public/favicon.ico
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
@@ -22,6 +22,10 @@ GET     /public/                                staticDir:public
 # Error pages
 GET        /404                                 Errors.notFound
 GET        /500                                 Errors.internalError
+
+#Robots and humans
+GET       /robots.txt                           staticFile:public/robots.txt
+GET       /humans.txt                           staticFile:public/humans.txt
 
 # Catch all
 *       /{ident}                                Slash.index
