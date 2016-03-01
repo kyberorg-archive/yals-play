@@ -19,13 +19,15 @@ GET     /favicon.ico                            staticFile:public/favicon.ico
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-# Error pages
-GET        /404                                 Errors.notFound
-GET        /500                                 Errors.internalError
-
 #Robots and humans
 GET       /robots.txt                           staticFile:public/robots.txt
 GET       /humans.txt                           staticFile:public/humans.txt
 
+# Idents
+GET       /{<[a-zA-Z]{1,10}>ident}              Slash.index
+
 # Catch all
-*       /{ident}                                Slash.index
+*          /api/.*                              CatchAll.handleUnmappedApiRequests
+GET        /.*                                  CatchAll.handleStatic
+*          /.*                                  CatchAll.handleElseWhat
+

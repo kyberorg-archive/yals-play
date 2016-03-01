@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Link shortener">
-    <link rel="author" href="humans.txt" />
-    <title>Error 404</title>
+    <link rel="author" href="humans.txt"/>
+    <title>Error 501</title>
 
     <!-- Bootstrap -->
     <link href="@{'/public/css/bs/bootstrap.min.css'}" rel="stylesheet">
@@ -28,10 +28,13 @@
         &nbsp;
     </div>
     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-        <h1>404 - No Such Page Exception</h1>
-            <p class="lead">We don't have such page at you site. Really. <br>
-                Make sure you copypasted it fully and without extra characters</p>
-        <img src="@{'/public/images/404.jpg'}" alt="No such page really...">
+        <h1>501 - No Implementation Found Exception</h1>
+        <p class="lead">Hups...We have no idea how to handle given URL <br>
+        #{if objectRef}
+            Please <a href="mailto:help@hz.am">report</a> this strange number: <strong>${objectRef}</strong>
+        #{/if}
+        </p>
+
     </div>
 </div>
 </body>

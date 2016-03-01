@@ -48,6 +48,7 @@ public class Slash extends Controller {
 
         if(Objects.isNull(apiResponse)) {
             Logger.error("No reply from API. ObjectRef: %s", objectRef);
+            response.status = Http.StatusCode.INTERNAL_ERROR;
             render("errors/500.html", objectRef);
             return;
         }
@@ -86,10 +87,12 @@ public class Slash extends Controller {
 
 
     private static void render404() {
-        render("errors/404.html");
+        response.status = Http.StatusCode.NOT_FOUND;
+        render("errors/404-ident.html");
     }
 
     private static void render500() {
+        response.status = Http.StatusCode.INTERNAL_ERROR;
         render("errors/500.html", objectRef);
     }
 
