@@ -10,24 +10,21 @@ POST    /api/store                              Store.store
 GET     /api/link/{ident}                       Ident.getLongUrl
 GET     /api/link/                              Ident.getLongUrl
 
+# Catch all API
+*          /api                                 CatchAll.handleUnmappedApiRequests
+*          /api/                                CatchAll.handleUnmappedApiRequests
+*          /api/.*                              CatchAll.handleUnmappedApiRequests
+
 # Home page
 GET     /                                       Front.index
 
-# Ignore favicon requests
-GET     /favicon.ico                            staticFile:public/favicon.ico
-
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
-
-#Robots and humans
-GET       /robots.txt                           staticFile:public/robots.txt
-GET       /humans.txt                           staticFile:public/humans.txt
 
 # Idents
 GET       /{<[a-zA-Z]{1,10}>ident}              Slash.index
 
 # Catch all
-*          /api/.*                              CatchAll.handleUnmappedApiRequests
 GET        /.*                                  CatchAll.handleStatic
 *          /.*                                  CatchAll.handleElseWhat
 

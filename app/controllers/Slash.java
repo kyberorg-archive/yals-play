@@ -10,6 +10,7 @@ import play.mvc.Http;
 import struct.ErrorJson;
 import struct.IdentReply;
 import util.ErrorIdGenerator;
+import util.HostHelper;
 import util.Paths;
 
 import java.util.Objects;
@@ -35,7 +36,7 @@ public class Slash extends Controller {
         try {
             Logger.info("Searching for ident. Ident %s, ObjectRef: %s", ident, objectRef);
             String schema = request.secure ? "https://" : "http://";
-            String URL = schema + request.host + Paths.API_GET_LINK + ident;
+            String URL = schema + HostHelper.getMyHostFromRequest(request) + Paths.API_GET_LINK + ident;
             Logger.info("Requesting API. URL: %s. ObjectRef: %s", URL, objectRef);
             apiResponse = Unirest.get(URL).asString();
         } catch(Exception e) {

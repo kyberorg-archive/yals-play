@@ -11,7 +11,6 @@ import java.io.File;
 /**
  * Catches all unhandled request
  *
- * @author Alexander Muravya {@literal <asm@virtalab.net>}
  * @since 1.0
  */
 public class CatchAll extends Controller {
@@ -34,13 +33,19 @@ public class CatchAll extends Controller {
     }
 
     public static void handleUnmappedApiRequests() {
-        Logger.debug("Got unmapped request to API, replying 501 as JSON");
+        String method = request.method;
+        String resource = request.path;
+
+        Logger.debug("Got unmapped request to API (%s %s ), replying 501 as JSON", method, resource);
         response.status = Http.StatusCode.NOT_IMPLEMENTED;
         renderJSON(ErrorJson.init(("No such method implemented yet")));
     }
 
     public static void handleElseWhat(String everythingelse) {
-        Logger.debug("Got unmapped request to site, replying as 501");
+        String method = request.method;
+        String resource = request.path;
+
+        Logger.debug("Got unmapped request to site (%s %s ), replying as 501", method, resource);
         response.status = Http.StatusCode.NOT_IMPLEMENTED;
         render("errors/501.html");
     }
