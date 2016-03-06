@@ -11,4 +11,8 @@ public class Paths {
 
     public static final String OUR_GITHUB_REPO = "https://github.com/virtalab/hz.am";
     public static final String GITHUB_COMMIT_PATH = "/commit/";
+
+    public static final String TEST_CSS = "/css/test.css";
+    public static final String UNKNOWN_LOCATION = "/unknown";
+
 }
