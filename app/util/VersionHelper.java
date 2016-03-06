@@ -48,8 +48,10 @@ public class VersionHelper {
                         return -1;
                     }
                 });
-
-                return tagsList.get(0).getName();
+                logTagsList(tagsList);
+                String latestTag = tagsList.get(0).getName();
+                Logger.info("Application version is: %s", latestTag.replaceAll("[^\\d.]", ""));
+                return latestTag;
             } else {
                 Logger.warn("Git directory is not readable");
                 return "";
@@ -57,6 +59,15 @@ public class VersionHelper {
         } catch(Exception e) {
             Logger.warn(e, "Exception while getting latest tag");
             return "";
+        }
+    }
+
+    private static void logTagsList(List<File> tags) {
+        if(Logger.isDebugEnabled()) {
+            Logger.debug("Tags found");
+            for(File tag : tags) {
+                Logger.debug("Tag: %s, Date modified: %s", tag.getName(), tag.lastModified());
+            }
         }
     }
 }
