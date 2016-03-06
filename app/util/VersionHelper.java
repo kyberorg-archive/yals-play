@@ -40,9 +40,9 @@ public class VersionHelper {
                 }
                 List<File> tagsList = Arrays.asList(tags);
                 Collections.sort(tagsList, (f1, f2) -> {
-                    if(f1.lastModified() > f1.lastModified()) {
+                    if(f2.lastModified() > f1.lastModified()) {
                         return 1;
-                    } else if(f1.lastModified() == f2.lastModified()) {
+                    } else if(f2.lastModified() == f1.lastModified()) {
                         return 0;
                     } else {
                         return -1;
