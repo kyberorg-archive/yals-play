@@ -14,3 +14,10 @@ Just a simple link shortener like many others for friends.
 * Adapt project for IDEA  ``` play idealize ```
 
 * Open project Project->Open. Select *.iml
+
+
+## Release Notes
+### Version 0.99 (20/03/16)
+Last non-stable version
+
+* Basic functionally done
