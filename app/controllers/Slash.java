@@ -3,6 +3,7 @@ package controllers;
 import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
+import jobs.Track;
 import play.Logger;
 import play.db.jpa.NoTransaction;
 import play.mvc.Controller;
@@ -58,6 +59,12 @@ public class Slash extends Controller {
             case 200:
                 Logger.info("Got long URL. Redirecting to %s. ObjectRef: %s",
                         extractLongUrl(apiResponse), objectRef);
+
+                //Grab link stats with respect to DNT header
+                if(Track.isTrackingAllowedFor(request)){
+                    Track.my(request).now();
+                }
+
                 redirect(apiResponse);
                 break;
             case 400:
