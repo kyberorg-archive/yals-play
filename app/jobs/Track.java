@@ -1,8 +1,11 @@
 package jobs;
 
+import models.Stats;
 import play.Logger;
 import play.jobs.Job;
 import play.mvc.Http;
+
+import javax.persistence.PersistenceException;
 
 /**
  * Job which tracks statistics for clicked short link
@@ -46,7 +49,18 @@ public class Track extends Job {
 
     @Override
     public void doJob() throws Exception {
-        //TODO do something useful here
+        Stats stats = new Stats();
+        stats.ident= request.url; //TODO ident
+        Logger.info("Ip "+request.remoteAddress);
+        stats.ip = request.get().remoteAddress;
+        try {
+            boolean saved = stats.validateAndCreate();
+            if(!saved){
+                throw new PersistenceException("Cannot save"); //TODO better message
+            }
+        }catch(Exception e){
+            Logger.warn(e.getMessage());
+        }
     }
 
 }

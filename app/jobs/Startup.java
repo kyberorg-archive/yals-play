@@ -2,6 +2,7 @@ package jobs;
 
 import app.Storage;
 import play.Logger;
+import play.Play;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 import util.VersionHelper;
@@ -20,5 +21,8 @@ public class Startup extends Job {
 
         Storage.get().setLatestCommit(VersionHelper.getLatestCommitHash());
         Storage.get().setLatestTag(VersionHelper.getLatestTag());
+
+        Play.configuration.setProperty("java.net.preferIPv4Stack","true");
+
     }
 }

@@ -5,6 +5,7 @@ ident.minsize=Ident is too short
 ident.maxsize=Ident is too long
 url.minsize=URL is too short
 url.maxsize=URL is too long
+country.minsize=Country name is very short
 
 # /api/store messages
 public.url.minsize=URL is too short (should be at least 5 chars)
